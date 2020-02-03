@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Pet Shop da RD")
+        var cachorro = {
+            nome: "Bill",
+            idade: 12,
+            raca: "Poodle",
+            peso: 9.2,
+            cor: "Branco",
+            dono: "Rafaella",
+            vacinado: false,
+            servico: ["Banho", "Tosa"]
+        }
+        function vacinar(cachorro){
+            if (cachorro.vacinado == false) {
+                return cachorro.vacinado = true
+            }
+            else {
+                return "Não precisa vacinar"
+            }
+        }
+    </script>
+</body>
+</html>
