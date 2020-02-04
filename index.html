@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         console.log("Pet Shop da RD")
-        var cachorro = {
+        var pets = [{
+            tipo: "cachorro",
             nome: "Bill",
             idade: 12,
             raca: "Poodle",
@@ -18,15 +21,139 @@
             dono: "Rafaella",
             vacinado: false,
             servico: ["Banho", "Tosa"]
+        },
+        {
+            tipo: "Gato",
+            nome: "Bob",
+            idade: 5,
+            raca: "Poodle",
+            peso: 6,
+            cor: "Branco",
+            dono: "Rafaella",
+            vacinado: false,
+            servico: ["Banho"]
+        },
+        {
+            tipo: "Gato",
+            nome: "Bibi",
+            idade: 5,
+            raca: "Vira-lata",
+            peso: 6,
+            cor: "Laranja",
+            dono: "Ninguem",
+            vacinado: false,
+            servico: ["Banho"]
         }
-        function vacinar(cachorro){
-            if (cachorro.vacinado == false) {
-                return cachorro.vacinado = true
-            }
-            else {
-                return "Não precisa vacinar"
+        ];
+        console.log(pets)
+
+        const vacinar = pets => {
+            if (pets.vacinado) {
+                console.log("Não precisa vacinar")
+            } else {
+                pets.vacinado == true
+                console.log("Pet Vacinado!")
             }
         }
+
+
+
+        //
+        //        function adicionarPet(tipo,nome,idade,raca,peso,cordono,vacinado,servico){
+        //            pets.push({tipo: "Cachorro", nome: "Carlinhos", idade: 3, raca: "Sei lá", peso: 1.2, cor:"Azul", dono: "Silva", vacinado: true, servico:[ "Banho"]})
+        //            console.log(pets)
+        //        } 
+
+        const adicionarPet = (tipo, nome, idade, raca, peso, cor, vacinado, servico) => {
+
+            let petNovo = {
+                tipo: tipo,
+                nome: nome,
+                idade: idade,
+                raca: raca,
+                peso: peso,
+                cor: cor,
+                dono: {
+                    nome: null,
+                    idade: null
+                },
+                vacinado: vacinado,
+                servico: servico
+            }
+            pets.push(petNovo)
+            console.log("Pet adicionado com sucesso")
+            return petNovo;
+        }
+
+        const exibirPets = () => {
+            //        for (let i = 0; i < pets.length; i++) {
+            pets.forEach( (pet, index) => {
+                console.log("########################################################")
+                console.log("O pet é um : " + pet.tipo)
+                console.log("Nome do pet : " + pet.nome)
+                console.log("A idade : " + pet.idade)
+                console.log("A raça é : " + pet.raca)
+                console.log("O pet pesa : " + pet.peso)
+                console.log("A cor do pet : " + pet.cor)
+                console.log(pet.vacinado ? "Esse pet já está vacinado" : "Ainda não está vacinado")
+            });
+        }
+                                    // Arrow Function:
+                                    // const soma = (a,b) => a+b;
+                                    // const nomePessoa = nome => console.log("Olá" + nome)
+                                    // função anoninma precisa do parenteses 
+       
+        // const filtrarPetsGato = () => {
+
+
+        // let petsTipoGato = [];
+        // pets.forEach((pet, index) => {
+        //     if (pet.tipo.includes("Gato")) {
+        //         petsTipoGato.push(pet)
+        //     }
+        // });
+        // return petsTipoGato;
+        // }
+
+        const filtrarPetsGato = () => {
+            let listaPetsGatos = pets.filter(function(pet, index){
+                return pet.tipo == "Gato"
+            })
+            return listaPetsGatos
+        }
+
+
+        // Math.round arrendonda o numero float
+        // let arrayInteiros = []
+        // [1.2,121.4,1124.5].forEach(function(numero,index){
+        //     arrayInteiros.push(Math.round(numero))
+        // }) 
+
+
+        // ou 
+        // [1.2,121.4,1124.5].map(numero,index){
+        //     return Math.round(numero)
+        // })
+
+        // const petsVacinados = () => {
+        //     let listaDosVacinados = pets.map((pet,index) => {
+        //         pet.vacinado? 0 : pet.vacinado = true; 
+        //         return pet
+        //     })
+        //     return listaDosVacinados
+    
+
+        const vacinarGeral = () => {
+            pets.map(function(pet, index) {
+                return pet.vacinado = true;
+            })
+            return pets
+        }
+
+
+
+
     </script>
 </body>
+
 </html>
